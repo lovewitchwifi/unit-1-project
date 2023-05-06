@@ -15,7 +15,7 @@ body {
     padding:1%;
     flex:1;
     border:solid yellow 5px;
-    //border: solid 5px pink;
+    /*border: solid 5px pink;*/
     display: flex;
   }
   .child{

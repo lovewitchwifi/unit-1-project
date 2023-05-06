@@ -1,4 +1,29 @@
-let categories = ["song lyrics", "locations", "girl names", "puerto rican slang", "wild card"]
+const categories = ['song lyrics', 'locations', 'girl names', 'puerto rican slang', 'wild card']
+
+const songLyricsQuestions = 
+      ["What is the messaging app Bad Bunny references when he laments the feeling of someone not saving you as a contact in their phone: ‘____ sin el retrato, no guarda mi contacto’?", "Question two", "Question three"]
+
+const songLyricsAnswers =
+      ["Answer 1", "Answer 2", "Answer 3"]
+
+
+const sLQ1 = documnet.querySelector("child song-lyrics-100")
+
+sLQ1.addEventListener("click", function(){})
+      
+      
+  //     {
+  //   category: "song lyrics",
+  //   questions: [
+  //     {
+  //         question-one: "What is the messaging app Bad Bunny references when he laments the feeling of someone not saving you as a contact in their phone: ‘____ sin el retrato, no guarda mi contacto’?",   
+  //         answer-one: ["WHATSAPP"],
+  //         level: "easy",
+  // }
+  // }
+  
+
+
 
 
 // 

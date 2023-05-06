@@ -1,10 +1,35 @@
 body {
-    background-image: url("https://i.postimg.cc/BQZggRMp/Un-Verano-Sin-Ti-Wallpaper-i-Xpap.jpg");
+    background-color: white;
     background-size: cover; 
   }
 
-.top-header {
+  .board{
+    background-image: url("https://i.postimg.cc/BQZggRMp/Un-Verano-Sin-Ti-Wallpaper-i-Xpap.jpg");
     display:flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    flex-direction:column;
+    border:solid 2px;
+    padding:4.5%;
+  }
+  
+  .flex-parent {
+    padding:1%;
+    flex:1;
+    border:solid yellow 5px;
+    //border: solid 5px pink;
+    display: flex;
+  }
+  .child{
+    border:solid 2px;
+    margin:.5%;
+    width:150px;
+    height:50px;
+    flex:1;
+  }
+  .lil-child{
+    border: solid 2px;
+    height:50px;
+    width:150px;
+  }
+
+
+  

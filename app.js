@@ -1,7 +1,5 @@
 // Set categories to "song lyrics", "locations", "girl names", "puerto rican slang", and "wild card"
 
-const categories = ['song lyrics', 'locations', 'girl names', 'puerto rican slang', 'wild card']
-
 // Set questions and answers within each category:
 
 const songLyricsQuestions = 
@@ -54,13 +52,83 @@ const wildCardAnswers =
     "What is Luma Energy?",
     "What is Suavemente by Elvis Crespo?"]
 
-const songLyricsQuestion100 = document.querySelector("#song-lyrics-100")
+const categories = {
+  "song-lyrics": {
+    100: { question: songLyricsQuestions[0], answer: songLyricsAnswers[0] },
+    200: { question: songLyricsQuestions[1], answer: songLyricsAnswers[1] },
+    300: { question: songLyricsQuestions[2], answer: songLyricsAnswers[2] },
+  },
+  locations: {
+    100: { question: locationsQuestions[0], answer: locationsAnswers[0] },
+    200: { question: locationsQuestions[1], answer: locationsAnswers[1] },
+    300: { question: locationsQuestions[2], answer: locationsAnswers[2] },
+  },
+  "girl-names": {
+    100: { question: girlNamesQuestions[0], answer: girlNamesAnswers[0] },
+    200: { question: girlNamesQuestions[1], answer: girlNamesAnswers[1] },
+    300: { question: girlNamesQuestions[2], answer: girlNamesAnswers[2] },
+  },
+  "pr-slang": {
+    100: { question: prSlangQuestions[0], answer: prSlangAnswers[0] },
+    200: { question: prSlangQuestions[1], answer: prSlangAnswers[1] },
+    300: { question: prSlangQuestions[2], answer: prSlangAnswers[2] },
+  },
+  "wild-card": {
+    100: { question: wildCardQuestions[0], answer: wildCardAnswers[0] },
+    200: { question: wildCardQuestions[1], answer: wildCardAnswers[1] },
+    300: { question: wildCardQuestions[2], answer: wildCardAnswers[2] },
+  },
+};
 
-songLyricsQuestion100.addEventListener('click', (event){
-    console.log('test');
-})
+const modal = document.createElement("div");
+modal.className = "modal";
+const modalContent = document.createElement("div");
+modalContent.className = "modal-content";
+modal.appendChild(modalContent);
 
+const questions = document.querySelectorAll(".flex-parent:not(#categories)");
+questions.forEach((questionRow, i) => {
+  const category = Object.keys(categories)[i];
+  const values = Object.keys(categories[category]);
 
+  questionRow.childNodes.forEach((questionCell, j) => {
+    questionCell.addEventListener("click", () => {
+      const value = values[j];
+      const { question, answer } = categories[category][value];
+
+      modalContent.innerHTML = `
+        <h3>${category.toUpperCase()} - ${value}</h3>
+        <p>${question}</p>
+        <input type="text" id="answer-input" placeholder="Type your answer here" />
+        <button id="answer-submit">Submit</button>
+      `;
+
+      modal.style.display = "block";
+
+      const answerInput = modalContent.querySelector("#answer-input");
+      const answerSubmit = modalContent.querySelector("#answer-submit");
+
+      answerSubmit.addEventListener("click", () => {
+        const playerAnswer = answerInput.value;
+        const isCorrect = playerAnswer.toLowerCase() === answer.toLowerCase();
+        const feedback = document.createElement("p");
+        feedback.innerHTML = isCorrect ? "Correct!" : `Incorrect. The correct answer is "${answer}".`;
+        modalContent.appendChild(feedback);
+        answerInput.disabled = true;
+        answerSubmit.disabled = true;
+      });
+    });
+  });
+});
+
+document.body.appendChild(modal);
+
+window.onclick = function (event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+    modalContent.innerHTML = "";
+  }
+};
 
 // Then we will have functions to display the question and answer
 

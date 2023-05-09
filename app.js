@@ -1,5 +1,3 @@
-// Create data objects containing all of the necessary info for each question box
-
 const data = [
     {id: 0,
     category: "song lyrics",
@@ -132,84 +130,13 @@ const data = [
   
   //add event listener and populate module with data
   
-const modal = document.createElement("div");
-modal.className = "modal";
-const modalContent = document.createElement("div");
-modalContent.className = "modal-content";
-modal.appendChild(modalContent);
-
-const questions = document.querySelectorAll(".flex-parent:not(#categories)");
-questions.forEach((questionRow, i) => {
-  const category = Object.keys(categories)[i];
-  const values = Object.keys(categories[category]);
-
-  questionRow.childNodes.forEach((questionCell, j) => {
-    questionCell.addEventListener("click", () => {
-      const value = values[j];
-      const { question, answer } = categories[category][value];
-
-      modalContent.innerHTML = `
-        <h3>${category.toUpperCase()} - ${value}</h3>
-        <p>${question}</p>
-        <input type="text" id="answer-input" placeholder="Type your answer here" />
-        <button id="answer-submit">Submit</button>
-      `;
-
-      modal.style.display = "block";
-
-      const answerInput = modalContent.querySelector("#answer-input");
-      const answerSubmit = modalContent.querySelector("#answer-submit");
-
-      answerSubmit.addEventListener("click", () => {
-        const playerAnswer = answerInput.value;
-        const isCorrect = playerAnswer.toLowerCase() === answer.toLowerCase();
-        const feedback = document.createElement("p");
-        feedback.innerHTML = isCorrect ? "Correct!" : `Incorrect. The correct answer is "${answer}".`;
-        modalContent.appendChild(feedback);
-        answerInput.disabled = true;
-        answerSubmit.disabled = true;
-      });
-    });
-  });
-});
-
-document.body.appendChild(modal);
-
-window.onclick = function (event) {
-  if (event.target === modal) {
-    modal.style.display = "none";
-    modalContent.innerHTML = "";
-  }
-};
-
-// Then we will have functions to display the question and answer
-
-// [function]
-// displayQuestion(categoryIndex, questionIndex) {
-// Display the question on the game board
-//   let category = categories[categoryIndex];
-//   let question = questions[category][questionIndex];
-// }
-
-// [function]
-// Display the answer on the game board
-//   let category = categories[categoryIndex];
-//   let answer = questions[category][questionIndex].answers;
-
-
-// Then we need a loop to let the player select a question and answer and then check if that answer is correct. 
-
-// [loop]
-// let user click question by making it a button
-
-// [function]
-// display question 
-// let user submit answer (this is the part that i dont know... how will they give their answer hmmm)
-
-// [loop]
-// if user answer === category index question index answer index
-// then add $ to winnings box
-// [else]
-// remove $ from winnings box and display correct answer
-
-// 
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-question"></h2>
+      <input type="text" id="modal-answer" placeholder="Enter your answer here">
+      <button id="modal-submit">Submit</button>
+    </div>
+  </div>
+  
+  

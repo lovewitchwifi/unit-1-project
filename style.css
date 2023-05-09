@@ -28,7 +28,8 @@ body {
     font-family: sans-serif;
     font-weight: bold;
   }
-  .child {
+  .child,
+  .label {
     border:solid 1px;
     margin:.5%;
     width: 50px;

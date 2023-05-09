@@ -1,85 +1,137 @@
-// Set categories to "song lyrics", "locations", "girl names", "puerto rican slang", and "wild card"
+// Create data objects containing all of the necessary info for each question box
 
-// Set questions and answers within each category:
-
-const songLyricsQuestions = 
-    ["What is the messaging app Bad Bunny references when he laments the feeling of someone not saving you as a contact in their phone: ‘____ sin el retrato, no guarda mi contacto’?", 
-    "Finish this line in the song “Me Porto Bonito”: 'Tu no eres bebesita, __ ____ ________'", 
-    "In the song, “Yo no soy celoso”, Bad Bunny is stating that he’s not the jealous type but seeing his girl with another guy still begs what question?"]
-
-const songLyricsAnswers =
-    ["What is WhatsApp?", 
-    "What is tu eres bebesota?", 
-    "What is pero quien es ese cabron?"]
-
-const locationsQuestions = 
-    ["In the song “Ensename a bailar” Bad Bunny refers to the island Quisqeya, who colonized this island in 1492?", 
-    "In the song 'Andrea', Bad Bunny tells a story about Andrea leaving what popular nightlife area at 4 in the morning?", 
-    "What is the secret beach town where Bad Bunny recorded ‘Un Verano Sin Ti’?"]
-
-const locationsAnswers =
-    ["Who is Christopher Columbus?", 
-    "What is La Perla?", 
-    "What is Aniaco?"]
-
-const prSlangQuestions =
-    ["What is the puerto rican term for dancing or rather, twerking?",
-    "Bad Bunny’s hit single “TITI ME PREGUNTO” climbed the charts in 2022, who is he referring to when he addresses “TITI”?",
-    "When Bad Bunny says “Puerto Rico está bien cabrón, ey, está bien cabrón”, he is using the term “cabron” which can often mean what?"]
-
-const prSlangAnswers =
-    ["What is perreo?",
-    "What is an aunty?",
-    "What is cool?"]
-
-const girlNamesQuestions =
-    ["Out of all the names mentioned in the hit song “Titi Me Pregunto”, what is the name of the one woman confirmed Bad Bunny has had a serious relationship with in the past?",
-    "Who does Bad Bunny name as being his first girlfriend in kindergarten when he says, “Mi primera novia en kinder, _____”?",
-    "At almost 6 minutes long, this song sends a powerful message on femicide. The track sheds light on the case of a Puerto Rican woman murdered by her abusive ex-boyfriend after the courts failed to protect her. What is this woman’s name?"]
-
-const girlNamesAnswers =
-    ["Who is Gabriela?",
-    "Who is Maria?",
-    "Who is Andrea?"]
-
-const wildCardQuestions =
-    ["“Despues de la playa” has a distinctive sound compared to the rest of the album, what genre is Bad Bunny paying homage to in this song?",
-    "In “El Apagon” Bad Bunny is paying homage to his beloved home, Puerto Rico, by highlighting the effects of power blackouts throughout the territory. What energy company is widely known as being responsible for these blackouts?",
-    "In the music video for 'Neverita' Bad Bunny paid homage to a famous latin song and singer by replicating the exact same music video but starring himself. What is the name of the song and artist that Benito is paying homage to?"]
-
-const wildCardAnswers =
-    ["What is salsa?",
-    "What is Luma Energy?",
-    "What is Suavemente by Elvis Crespo?"]
-
-const categories = {
-  "song-lyrics": {
-    100: { question: songLyricsQuestions[0], answer: songLyricsAnswers[0] },
-    200: { question: songLyricsQuestions[1], answer: songLyricsAnswers[1] },
-    300: { question: songLyricsQuestions[2], answer: songLyricsAnswers[2] },
-  },
-  locations: {
-    100: { question: locationsQuestions[0], answer: locationsAnswers[0] },
-    200: { question: locationsQuestions[1], answer: locationsAnswers[1] },
-    300: { question: locationsQuestions[2], answer: locationsAnswers[2] },
-  },
-  "girl-names": {
-    100: { question: girlNamesQuestions[0], answer: girlNamesAnswers[0] },
-    200: { question: girlNamesQuestions[1], answer: girlNamesAnswers[1] },
-    300: { question: girlNamesQuestions[2], answer: girlNamesAnswers[2] },
-  },
-  "pr-slang": {
-    100: { question: prSlangQuestions[0], answer: prSlangAnswers[0] },
-    200: { question: prSlangQuestions[1], answer: prSlangAnswers[1] },
-    300: { question: prSlangQuestions[2], answer: prSlangAnswers[2] },
-  },
-  "wild-card": {
-    100: { question: wildCardQuestions[0], answer: wildCardAnswers[0] },
-    200: { question: wildCardQuestions[1], answer: wildCardAnswers[1] },
-    300: { question: wildCardQuestions[2], answer: wildCardAnswers[2] },
-  },
-};
-
+const data = [
+    {id: 0,
+    category: "song lyrics",
+    value: 100,
+    question: "What is the messaging app Bad Bunny references when he laments the feeling of someone not saving you as a contact in their phone: ‘____ sin el retrato, no guarda mi contacto’?",
+    answer: "What is WhatsApp?",
+    dailyDouble: false
+    },
+  
+    {id: 1,
+    category: "locations",
+    value: 100,
+    question: "In the song “Ensename a bailar” Bad Bunny refers to the island “Quisqeya”, who colonized this island in 1492?",
+    answer: "Who is Christopher Columbus?",
+    dailyDouble: false
+    },  
+    
+    {id: 2,
+    category: "girl names",
+    value: 100,
+    question: "Out of all the names mentioned in the hit song “Titi Me Pregunto”, what is the name of the one woman confirmed Bad Bunny has had a serious relationship with in the past?",
+    answer: "Who is Gabriela?",
+    dailyDouble: false
+    },   
+    
+    {id: 3,
+    category: "puerto rican slang",
+    value: 100,
+    question: "What is the puerto rican term for dancing or rather, twerking?",
+    answer: "What is Perreo?",
+    dailyDouble: false
+    },  
+    
+    {id: 4,
+    category: "wild card",
+    value: 100,
+    question: "“Despues de la playa” has a distinctive sound compared to the rest of the album, what genre is Bad Bunny paying homage to in this song?",
+    answer: "What is salsa?",
+    dailyDouble: false
+    },  
+      
+    {id: 5,
+    category: "song lyrics",
+    value: 200,
+    question: "Finish this line in the song 'Me Porto Bonito': 'Tu no eres bebesita, tu eres ...'",
+    answer: "What is bebesota?",
+    dailyDouble: false
+    },
+  
+    {id: 6,
+    category: "locations",
+    value: 200,
+    question: "In the song “Andrea” Bad Bunny tells a story about Andrea leaving what popular nightlife area that rests in Old San Juan at 4 in the morning?",
+    answer: "What is La Perla?",
+    dailyDouble: false
+    },  
+    
+    {id: 7,
+    category: "girl names",
+    value: 200,
+    question: "Who does Bad Bunny name as being his first girlfriend in kindergarten when he says, “Mi primera novia en kinder, _____”?",
+    answer: "Who is Maria?",
+    dailyDouble: false
+    },  
+    
+    {id: 8,
+    category: "puerto rican slang",
+    value: 200,
+    question: "Bad Bunny’s hit single 'TITI ME PREGUNTO' climbed the charts in 2022, who is he referring to when he addresses 'TITI'?",
+    answer: "What is an aunty?",
+    dailyDouble: false
+    },  
+    
+    {id: 9,
+    category: "wild card",
+    value: 200,
+    question: "In “El Apagon” Bad Bunny is paying homage to his beloved home, Puerto Rico, by highlighting the effects of power blackouts throughout the territory. What energy company is widely known as being responsible for these blackouts?",
+    answer: "Who is Luma Energy?",
+    dailyDouble: false
+    },  
+    
+    {id: 10,
+    category: "song lyrics",
+    value: 300,
+    question: "In the song, “Yo no soy celoso”, Bad Bunny is stating that he’s not the jealous type but seeing his girl with another guy still begs what question?",
+    answer: "What is pero quien es ese cabron?",
+    dailyDouble: false
+    },
+  
+    {id: 11,
+    category: "locations",
+    value: 300,
+    question: "What is the secret beach town where Bad Bunny recorded ‘Un Verano Sin Ti’?",
+    answer: "What is Aniaco?",
+    dailyDouble: false
+    },
+  
+    {id: 12,
+    category: "girl names",
+    value: 300,
+    question: "At almost 6 minutes long, this song sends a powerful message on femicide. The track sheds light on the case of a Puerto Rican woman murdered by her abusive ex-boyfriend after the courts failed to protect her. What is this woman’s name?",
+    answer: "Who is Andrea?",
+    dailyDouble: false
+    },  
+  
+    {id: 13,
+    category: "puerto rican slang",
+    value: 300,
+    question: "When Bad Bunny says “Puerto Rico está bien cabrón, ey, está bien cabrón”, he is using the term “cabron” which can often mean what?",
+    answer: "What is cool?",
+    dailyDouble: false
+    },   
+  
+    {id: 14,
+    category: "wild card",
+    value: 300,
+    question: "In the music video for 'Neverita' Bad Bunny paid homage to a famous latin song and singer by replicating the exact same music video but starring himself. What is the name of the song and artist that Benito is paying homage to?",
+    answer: "What is Suavemente by Elvis Crespo?",
+    dailyDouble: false
+    },    
+  ]
+  
+  //event listeners, set up reference to all of objects i want to interact with in HTML
+  
+  const squares = document.querySelectorAll('.child')
+  squares.forEach((square, index) => {
+    const squareData = data[square.dataset.id]
+    console.log(squareData)
+  })
+  
+  //add event listener and populate module with data
+  
 const modal = document.createElement("div");
 modal.className = "modal";
 const modalContent = document.createElement("div");

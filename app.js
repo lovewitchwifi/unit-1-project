@@ -120,23 +120,36 @@ const data = [
     },    
   ]
   
+
   //event listeners, set up reference to all of objects i want to interact with in HTML
   
   const squares = document.querySelectorAll('.child')
   squares.forEach((square, index) => {
     const squareData = data[square.dataset.id]
     console.log(squareData)
+    square.addEventListener('click', function(){
+        console.log('test')
+      })
   })
-  
+
+// track winnings
+
+const dineroDisplay = document.getElementById('dinero display')
+
+if (data.id.value = 100) {
+    //add 100 to dinero display
+}
+
+if (data.id.value = 200) {
+    //add 200 to dinero display
+}
+
+if (data.id.value = 300) {
+    //add 200 to dinero display
+}
   //add event listener and populate module with data
-  
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 id="modal-question"></h2>
-      <input type="text" id="modal-answer" placeholder="Enter your answer here">
-      <button id="modal-submit">Submit</button>
-    </div>
-  </div>
-  
-  
+
+  //add modal
+
+  <div class= "modal" id = "modal">
+  <><button class="close-button" id="close-button">next question</button><div class="modal-content">data</div></>

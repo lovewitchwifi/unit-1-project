@@ -1,3 +1,5 @@
+/*------------------------------OBJECTS------------------------------*/
+
 const data = [
     {id: 0,
     category: "song lyrics",
@@ -119,7 +121,9 @@ const data = [
     dailyDouble: false
     },    
   ]
-  
+
+/*------------------------------ELEMENTS------------------------------*/
+
 const squares = document.querySelectorAll('.child')
 
 const dineroElement = document.getElementById('dinero');
@@ -133,6 +137,7 @@ let currentDinero = 0;
 let currentSquare = 0;
 
 
+/*------------------------------FUNCTIONS------------------------------*/
 
 
 squares.forEach((square) => {

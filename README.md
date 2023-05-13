@@ -6,11 +6,13 @@ The way it works is that you click on a square with a dollar value
 
 Then a modal with the question and answer field pops up
 
-Answer the question but remember to use the original jeopardy rules by typing with the "What is ...?" or "Who is ...?" nomenclature
+Answer the question but remember to use the original jeopardy rules by typing with the "What is ...?" or "Who is ...?" syntax
 
 Then you click submit
 
 Watch your dinero grow or decline whether or not you get the answer correct or incorrect
+
+You win by getting 700 points and you lose by having -700 points
 
 Screenshots:
 

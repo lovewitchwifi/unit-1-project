@@ -168,9 +168,9 @@ submitAnswerBtn.addEventListener('click', () => {
     submitAnswerBtn.disabled = true;
 
     if (currentDinero >= winThreshold) {
-        alert("Congratulations! You win!");
+        alert("WEPA! You win!");
       } else if (currentDinero <= loseThreshold) {
-        alert("Game over! You lose!");
+        alert("Cabron,  you lost!");
       }
 });
 

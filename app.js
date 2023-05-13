@@ -136,6 +136,8 @@ const submitAnswerBtn = document.getElementById('submit-answer');
 let currentDinero = 0;
 let currentSquare = 0;
 
+const winThreshold = 700;
+const loseThreshold = -700;
 
 /*------------------------------FUNCTIONS------------------------------*/
 
@@ -164,6 +166,12 @@ submitAnswerBtn.addEventListener('click', () => {
     dineroElement.textContent = currentDinero;
     questionModal.style.display = 'none';
     submitAnswerBtn.disabled = true;
+
+    if (currentDinero >= winThreshold) {
+        alert("Congratulations! You win!");
+      } else if (currentDinero <= loseThreshold) {
+        alert("Game over! You lose!");
+      }
 });
 
 window.addEventListener('click', (event) => {
@@ -172,3 +180,5 @@ window.addEventListener('click', (event) => {
         submitAnswerBtn.disabled = true;
     }
 });
+
+

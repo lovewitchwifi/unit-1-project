@@ -43,14 +43,17 @@
         <div class="child" data-id="14">$300</div>
       </div>
       <h3>TU DINERO: <span id="dinero"></span></h3>
+
+      <div id="question-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="question-category"></h3>
+            <p id="question-value"></p>
+            <input type="text" id="answer-input" placeholder="Enter your answer">
+            <button id="submit-answer">Submit</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
 </html>
 
-<!-- Modal HTML -->
-<div class="modal" id="modal" >
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2 id="modal-question"></h2>
-    <input type="text" id="modal-answer" placeholder="Enter your answer here">
-    <button id="modal-submit">Submit</button>
-  </div>
-</div>

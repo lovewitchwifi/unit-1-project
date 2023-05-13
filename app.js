@@ -120,36 +120,84 @@ const data = [
     },    
   ]
   
+const squares = document.querySelectorAll('.child')
+
+const dineroElement = document.getElementById('dinero');
+const questionModal = document.getElementById('question-modal');
+const questionCategory = document.getElementById('question-category');
+const questionValue = document.getElementById('question-value');
+const answerInput = document.getElementById('answer-input');
+const submitAnswerBtn = document.getElementById('submit-answer');
+
+let currentDinero = 0;
+
+squares.forEach((square) => {
+    square.addEventListener('click', () => {
+        const squareData = data[square.dataset.id];
+        questionCategory.textContent = squareData.category.toUpperCase();
+        questionValue.textContent = `${squareData.question}`;
+        answerInput.value = '';
+        questionModal.style.display = 'block';
+        submitAnswerBtn.disabled = false;
+
+        submitAnswerBtn.addEventListener('click', () => {
+            const userAnswer = answerInput.value.trim();
+            if (userAnswer.toLowerCase() === squareData.answer.toLowerCase()) {
+                currentDinero += squareData.value;
+            } else {
+                currentDinero -= squareData.value;
+            }
+            dineroElement.textContent = currentDinero;
+            questionModal.style.display = 'none';
+            submitAnswerBtn.disabled = true;
+        });
+    });
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target === questionModal) {
+        questionModal.style.display = 'flex';
+        submitAnswerBtn.disabled = true;
+    }
+});
+ 
 
   //event listeners, set up reference to all of objects i want to interact with in HTML
   
-  const squares = document.querySelectorAll('.child')
-  squares.forEach((square, index) => {
-    const squareData = data[square.dataset.id]
-    console.log(squareData)
-    square.addEventListener('click', function(){
-        console.log('test')
-      })
-  })
 
-// track winnings
+//     square.setAttribute('data-question', data.id.question)
+//     square.setAttribute('data-answer', data.id.answer)
+//     square.setAttribute('data-value', data.id.value)
+//   })
 
-const dineroDisplay = document.getElementById('dinero display')
+//   //flip card function
 
-if (data.id.value = 100) {
-    //add 100 to dinero display
-}
+//     data.forEach (child => ) {
+//         const div = document.querySelector('.child')
+//         if (div) {
+//             div.textContent = child.question
+//     }
+//     //do i do an innerhtml here to adjust the question font size etc or is this where i insert my modal?
+// }
 
-if (data.id.value = 200) {
+// // track winnings
+
+// const dineroDisplay = document.getElementById('dinero display')
+
+// if (data.id.value = 100) {
+//     //add 100 to dinero display
+// }
+
+// if (data.id.value = 200) {
+//     //add 200 to dinero display
+// }
+
+// if (data.id.value = 300) {
     //add 200 to dinero display
-}
 
-if (data.id.value = 300) {
-    //add 200 to dinero display
-}
   //add event listener and populate module with data
 
   //add modal
 
-  <div class= "modal" id = "modal">
-  <><button class="close-button" id="close-button">next question</button><div class="modal-content">data</div></>
+//   <div class= "modal" id = "modal">
+//   <><button class="close-button" id="close-button">next question</button><div class="modal-content">data</div></> */}
